@@ -5,17 +5,13 @@ namespace VendingMachines.Entities
 {
     public class Transactions : EntityBase
     {
+        public Transactions()
+        {
+            TransactionItems = new HashSet<TransactionItems>();
+        }
+
         [Required]
         public Guid TransactionId { get; set; }
-
-        [Required]
-        public int ProductId { get; set; }
-
-        [Required]
-        public int TrxQuantity { get; set; }
-
-        [Required]
-        public decimal SubTotal { get; set; }
 
         [Required]
         public decimal Total { get; set; }
@@ -26,6 +22,6 @@ namespace VendingMachines.Entities
         [Required]
         public decimal Change { get; set; }
 
-        public virtual Products Products { get; set; }
+        public virtual ICollection<TransactionItems> TransactionItems { get; set; }
     }
 }

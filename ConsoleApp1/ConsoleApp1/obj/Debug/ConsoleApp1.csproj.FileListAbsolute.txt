@@ -1,0 +1,8 @@
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

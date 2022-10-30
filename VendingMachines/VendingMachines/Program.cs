@@ -1,5 +1,9 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using VendingMachines.Abstract;
+using VendingMachines.Concrete;
 using VendingMachines.Entities;
+using VendingMachines.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<VendingMachinesDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IDenominationsRepository, DenominationsRepository>();
+builder.Services.AddScoped<ITransactionsRepository, TransactionsRepository>();
+
+#region AutoMapper
+MapperConfiguration mappingConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MapperProfile());
+});
+
+IMapper mapper = mappingConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+#endregion
 
 var app = builder.Build();
 

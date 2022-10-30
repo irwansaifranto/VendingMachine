@@ -15,12 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\IRWAN SAIFRANTO R\INTERNAL\GITHUB\VendingMachine\VendingMachines\VendingMachines
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/IRWAN SAIFRANTO R/INTERNAL/GITHUB/VendingMachine/VendingMachines/VendingMachines/Views/Denominations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVub21pbmF0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/IRWAN SAIFRANTO R/INTERNAL/GITHUB/VendingMachine/VendingMachines/VendingMachines/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/IRWAN SAIFRANTO R/INTERNAL/GITHUB/VendingMachine/VendingMachines/VendingMachines/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/IRWAN SAIFRANTO R/INTERNAL/GITHUB/VendingMachine/VendingMachines/VendingMachines/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/IRWAN SAIFRANTO R/INTERNAL/GITHUB/VendingMachine/VendingMachines/VendingMachines/Views/Shared/Error.cshtml]

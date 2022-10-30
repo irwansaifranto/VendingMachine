@@ -33,18 +33,29 @@ namespace VendingMachines.Entities
             #endregion
 
             #region Transactions
-            modelBuilder.Entity<Transactions>().HasKey("TransactionId", "ProductId");
+            modelBuilder.Entity<Transactions>().HasKey(key => key.TransactionId);
             modelBuilder.Entity<Transactions>(entity =>
             {
-                entity.Property(p => p.SubTotal).HasColumnType("decimal(19,4)");
                 entity.Property(p => p.Total).HasColumnType("decimal(19,4)");
                 entity.Property(p => p.Paid).HasColumnType("decimal(19,4)");
                 entity.Property(p => p.Change).HasColumnType("decimal(19,4)");
+            });
+            #endregion
 
+            #region Transaction Items
+            modelBuilder.Entity<TransactionItems>().HasKey(key => key.TransactionItemId);
+            modelBuilder.Entity<TransactionItems>(entity => 
+            {
+                entity.Property(p => p.SubTotal).HasColumnType("decimal(19,4)");
+
+                entity.HasOne(p => p.Transactions)
+                .WithMany(p => p.TransactionItems)
+                .HasForeignKey(p => p.TransactionId)
+                .HasConstraintName("FK_TransactionItems_Transactions_TransactionId");
                 entity.HasOne(p => p.Products)
-                .WithMany(p => p.Transactions)
+                .WithMany(p => p.TransactionItems)
                 .HasForeignKey(p => p.ProductId)
-                .HasConstraintName("FK_Transactions_Products_ProductId");
+                .HasConstraintName("FK_TransactionItems_Products_ProductId");
             });
             #endregion
         }

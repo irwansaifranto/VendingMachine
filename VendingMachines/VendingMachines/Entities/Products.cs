@@ -6,7 +6,7 @@ namespace VendingMachines.Entities
     {
         public Products()
         {
-            Transactions = new HashSet<Transactions>();
+            TransactionItems = new HashSet<TransactionItems>();
         }
 
         [Required]
@@ -21,6 +21,6 @@ namespace VendingMachines.Entities
         [Required]
         public int ProdQuantity { get; set; }
 
-        public virtual ICollection<Transactions> Transactions { get; set; }
+        public virtual ICollection<TransactionItems> TransactionItems { get; set; }
     }
 }

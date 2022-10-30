@@ -97,13 +97,38 @@ namespace VendingMachines.Entities.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("VendingMachines.Entities.Transactions", b =>
+            modelBuilder.Entity("VendingMachines.Entities.TransactionItems", b =>
                 {
-                    b.Property<Guid>("TransactionId")
+                    b.Property<Guid>("TransactionItemId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasColumnType("decimal(19,4)");
+
+                    b.Property<Guid>("TransactionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("TrxQuantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("TransactionItemId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("TransactionId");
+
+                    b.ToTable("TransactionItems");
+                });
+
+            modelBuilder.Entity("VendingMachines.Entities.Transactions", b =>
+                {
+                    b.Property<Guid>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Change")
                         .HasColumnType("decimal(19,4)");
@@ -122,14 +147,8 @@ namespace VendingMachines.Entities.Migrations
                     b.Property<decimal>("Paid")
                         .HasColumnType("decimal(19,4)");
 
-                    b.Property<decimal>("SubTotal")
-                        .HasColumnType("decimal(19,4)");
-
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(19,4)");
-
-                    b.Property<int>("TrxQuantity")
-                        .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
@@ -139,28 +158,40 @@ namespace VendingMachines.Entities.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("TransactionId", "ProductId");
-
-                    b.HasIndex("ProductId");
+                    b.HasKey("TransactionId");
 
                     b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("VendingMachines.Entities.Transactions", b =>
+            modelBuilder.Entity("VendingMachines.Entities.TransactionItems", b =>
                 {
                     b.HasOne("VendingMachines.Entities.Products", "Products")
-                        .WithMany("Transactions")
+                        .WithMany("TransactionItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_Transactions_Products_ProductId");
+                        .HasConstraintName("FK_TransactionItems_Products_ProductId");
+
+                    b.HasOne("VendingMachines.Entities.Transactions", "Transactions")
+                        .WithMany("TransactionItems")
+                        .HasForeignKey("TransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_TransactionItems_Transactions_TransactionId");
 
                     b.Navigation("Products");
+
+                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("VendingMachines.Entities.Products", b =>
                 {
-                    b.Navigation("Transactions");
+                    b.Navigation("TransactionItems");
+                });
+
+            modelBuilder.Entity("VendingMachines.Entities.Transactions", b =>
+                {
+                    b.Navigation("TransactionItems");
                 });
 #pragma warning restore 612, 618
         }
